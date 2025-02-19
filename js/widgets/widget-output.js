@@ -307,8 +307,7 @@
 			try {
 				generator.document.write(
 					'<html><head><title>' + output.popupTitle + '</title></head><body>' +
-					'<textarea wrap="' + (wrap ? 'on' : 'off') + '" style="' +
-					output.popupStyle + '">' + data + '\n</textarea>' +
+					'<textarea wrap="' + (wrap ? 'on' : 'off') + '">' + data + '\n</textarea>' +
 					'</body></html>'
 				);
 				generator.document.close();

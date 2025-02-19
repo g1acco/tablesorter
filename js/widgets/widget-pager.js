@@ -503,7 +503,7 @@
 								len = ( '' + ( extra[ 0 ] === 'page' ? p.totalPages : p.totalRows ) ).length;
 								indx = extra[ 0 ] === 'page' ? p.page + 1 : p.startRow;
 								return '<input type="text" class="ts-' + extra[ 0 ] +
-									'" style="max-width:' + len + 'em" value="' + indx + '"/>';
+									'" value="' + indx + '"/>';
 							}
 							return extra.length > 1 && data && data[ extra[ 0 ] ] ?
 								data[ extra[ 0 ] ][ extra[ 1 ] ] :
@@ -634,7 +634,7 @@
 						$b.children( 'tr:visible' ).length < ( p.size === 'all' ? p.totalRows : p.size )
 					) {
 						$b.append( '<tr class="pagerSavedHeightSpacer ' + c.selectorRemove.slice( 1 ) +
-							'" style="height:' + d + 'px;"></tr>' );
+							'" ></tr>' );
 					}
 				}
 			}

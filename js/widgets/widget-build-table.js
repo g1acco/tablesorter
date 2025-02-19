@@ -131,7 +131,7 @@
 			if (widths && widths.length) {
 				t += '<colgroup>';
 				$.each(widths, function(i, w) {
-					t += '<col' + ( w ? ' style="width:' + w + '"' : '' ) + '>';
+					t += '<col' + ( w ? ' ' : '' ) + '>';
 				});
 				t += '</colgroup>';
 			}

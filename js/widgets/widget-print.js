@@ -1,3 +1,5 @@
+const nonceElement = document.getElementById("csp-nonce");
+const NONCE = nonceElement ? nonceElement.content : null;
 /* Widget: print - updated 12/8/2016 (v2.28.1) *//*
  * Requires tablesorter v2.8+ and jQuery 1.2.6+
  */
@@ -100,7 +102,7 @@
 			generator.document.write(
 				'<html><head><title>' + t + '</title>' +
 				( wo.print_styleSheet ? '<link rel="stylesheet" href="' + wo.print_styleSheet + '">' : '' ) +
-				'<style>' + style + '</style>' +
+				'<style nonce="'+NONCE+'">' + style + '</style>' +
 				'</head><body>' + button + data + '</body></html>'
 			);
 			generator.document.close();

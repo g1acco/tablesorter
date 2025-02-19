@@ -85,8 +85,8 @@
 					$row = rows.row ? rows.row[rowIndex] : rows.normalized[rowIndex][c.columns].$row;
 					last = right[rowIndex].slice(v.align.length);
 					$row.find('td').eq(v.column).html(
-						'<span class="ts-align-wrap"><span class="ts-align-left" style="' + wLeft + '">' + left[rowIndex] + '</span>' +
-						'<span class="ts-align-right" style="' + wRight + '">' + ( last.length ? alignChar + last : '' ) + '</span></span>'
+						'<span class="ts-align-wrap"><span class="ts-align-left">' + left[rowIndex] + '</span>' +
+						'<span class="ts-align-right" >' + ( last.length ? alignChar + last : '' ) + '</span></span>'
 					);
 				}
 			}

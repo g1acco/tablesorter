@@ -1,3 +1,5 @@
+const nonceElement = document.getElementById("csp-nonce");
+const NONCE = nonceElement ? nonceElement.content : null;
 /*! Dragtable Mod for TableSorter - updated 10/31/2015 (v2.24.0) *//*
  * Requires
  *   tablesorter v2.8+
@@ -421,7 +423,7 @@
         captionHeight += $(this).outerHeight();
       });
 
-      var sortableHtml = '<ul class="dragtable-sortable" style="position:absolute; width:' + totalWidth + 'px;">';
+      var sortableHtml = '<ul class="dragtable-sortable">';
       var sortableColumn = [];
       // assemble the needed html
       // build list
@@ -432,14 +434,14 @@
         var row = headerRows.children(':nth-child(' + (i + 1) + ')');
         if (row.is(':visible')) {
           rowIndex = 0;
-          sortableColumn[i] = '<li style="width:' + row.outerWidth() + 'px;">' +
+          sortableColumn[i] = '<li>' +
             '<table ' + tableAttrsString + '>' +
-            ( captionHeight ? '<caption style="height:' + captionHeight + 'px;"></caption>' : '' ) +
+            ( captionHeight ? '<caption></caption>' : '' ) +
             '<thead>';
           // thead
           headerRows.each(function(j){
             sortableColumn[i] += '<tr ' + rowAttrsArr[rowIndex++] +
-              ( heightArr[j] ? ' style="height:' + heightArr[j] + 'px;"' : '' ) + '>' +
+              ( heightArr[j] ? ' ' : '' ) + '>' +
               row[j].outerHTML + '</tr>';
           });
           sortableColumn[i] += '</thead><tbody>';
@@ -450,7 +452,7 @@
           }
           row.each(function(j) {
             sortableColumn[i] += '<tr ' + rowAttrsArr[rowIndex++] +
-              ( heightArr[j] ? ' style="height:' + heightArr[j] + 'px;"' : '' ) + '>' +
+              ( heightArr[j] ? ' ' : '' ) + '>' +
               this.outerHTML + '</tr>';
           });
           sortableColumn[i] += '</tbody>';
@@ -512,7 +514,7 @@
         placeholder.css('height', this.sortableTable.el.find('.ui-sortable-helper').height());
       }
 
-      placeholder.html('<div class="outer" style="height:100%;"><div class="inner" style="height:100%;"></div></div>');
+      placeholder.html('<div class="outer"><div class="inner"></div></div>');
     },
     bindTo: {},
     _create: function() {
@@ -574,7 +576,7 @@
   function disableTextSelection() {
     // jQuery doesn't support the element.text attribute in MSIE 8
     // http://stackoverflow.com/questions/2692770/style-style-textcss-appendtohead-does-not-work-in-ie
-    var $style = $('<style id="__dragtable_disable_text_selection__" type="text/css">body { -ms-user-select:none;-moz-user-select:-moz-none;-khtml-user-select:none;-webkit-user-select:none;user-select:none; }</style>');
+    var $style = $('<style nonce="'+NONCE+'" id="__dragtable_disable_text_selection__" type="text/css">body { -ms-user-select:none;-moz-user-select:-moz-none;-khtml-user-select:none;-webkit-user-select:none;user-select:none; }</style>');
     $(document.head).append($style);
     $(document.body).attr('onselectstart', 'return false;').attr('unselectable', 'on');
     if (window.getSelection) {

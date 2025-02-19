@@ -1,3 +1,5 @@
+const nonceElement = document.getElementById("csp-nonce");
+const NONCE = nonceElement ? nonceElement.content : null;
 /* Widget: columnSelector (responsive table widget) - updated 2018-08-03 (v2.31.2) *//*
  * Requires tablesorter v2.8+ and jQuery 1.7+
  * by Justin Hallett & Rob Garrison
@@ -32,8 +34,8 @@
 
 			// build column selector/state array
 			colSel = c.selector = { $container : $(wo.columnSelector_container || '<div>') };
-			colSel.$style = $('<style></style>').prop('disabled', true).appendTo('head');
-			colSel.$breakpoints = $('<style></style>').prop('disabled', true).appendTo('head');
+			colSel.$style = $('<style nonce="'+NONCE+'"></style>').prop('disabled', true).appendTo('head');
+			colSel.$breakpoints = $('<style nonce="'+NONCE+'"></style>').prop('disabled', true).appendTo('head');
 
 			colSel.isInitializing = true;
 			tsColSel.setUpColspan(c, wo);
