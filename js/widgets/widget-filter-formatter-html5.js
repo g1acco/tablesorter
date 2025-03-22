@@ -66,7 +66,7 @@
 
 			$input,
 			// test browser for HTML5 range support
-			$number = $('<input type="number" style="visibility:hidden;" value="test">').appendTo($cell),
+			$number = $('<input type="number" value="test">').appendTo($cell),
 			// test if HTML5 number is supported - from Modernizr
 			numberSupported = o.skipTest || $number.attr('type') === 'number' && $number.val() !== 'test',
 			$shcell = [],
@@ -196,7 +196,7 @@
 
 			$input,
 			// test browser for HTML5 range support
-			$range = $('<input type="range" style="visibility:hidden;" value="test">').appendTo($cell),
+			$range = $('<input type="range" value="test">').appendTo($cell),
 			// test if HTML5 range is supported - from Modernizr (but I left out the method to detect in Safari 2-4)
 			// see https://github.com/Modernizr/Modernizr/blob/master/feature-detects/inputtypes.js
 			rangeSupported = o.skipTest || $range.attr('type') === 'range' && $range.val() !== 'test',
@@ -322,7 +322,7 @@
 			}, defColor),
 			$input,
 			// Add a hidden input to hold the range values
-			$color = $('<input type="color" style="visibility:hidden;" value="test">').appendTo($cell),
+			$color = $('<input type="color" >').appendTo($cell),
 			// test if HTML5 color is supported - from Modernizr
 			colorSupported = o.skipTest || $color.attr('type') === 'color' && $color.val() !== 'test',
 			$shcell = [],

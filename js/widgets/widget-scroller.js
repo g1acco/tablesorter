@@ -1,3 +1,6 @@
+const nonceElement = document.getElementById("csp-nonce");
+const NONCE = nonceElement ? nonceElement.content : null;
+
 /*! Widget: scroller - updated 2018-05-07 (v2.30.4) *//*
 	Copyright (C) 2011 T. Connell & Associates, Inc.
 
@@ -102,7 +105,7 @@
 
 	// Add extra scroller css
 	$( function() {
-		var style = '<style>' +
+		var style = '<style nonce="'+NONCE+'">' +
 			/* overall wrapper & table section wrappers */
 			'.' + tscss.scrollerWrap + ' { position: relative; overflow: hidden; }' +
 			/* add border-box sizing to all scroller widget tables; see #135 */
@@ -224,7 +227,7 @@
 			$t = $table.children( 'tfoot' );
 			if ( $t.length ) {
 				$foot = $( '<table class="' + $table.attr( 'class' ) +
-					'" cellpadding=0 cellspacing=0 style="margin-top:0"></table>' )
+					'" cellpadding=0 cellspacing=0 ></table>' )
 					.addClass( c.namespace.slice( 1 ) + '_extra_table' )
 					// maintain any bindings on the tfoot cells
 					.append( $t.clone( true ) )
@@ -253,7 +256,7 @@
 			// if max-height is greater than 0 use max-height, so the height resizes dynamically while filtering
 			// else let the table not have a vertical scroll
 			$table.wrap( '<div class="' + tscss.scrollerTable +
-				( wo.scroller_height > 0 ? '" style="max-height:' + wo.scroller_height + 'px;">' : '">' ) );
+				( wo.scroller_height > 0 ? '" ' : '">' ) );
 			$tableWrap = $table.parent();
 
 			// make scroller header sortable
@@ -394,7 +397,7 @@
 					.addClass( tscss.scrollerHideElement ),
 				temp = 'padding:0;margin:0;border:0;height:0;max-height:0;min-height:0;',
 				row = '<tr class="' + tscss.scrollerSpacerRow + ' ' + c.selectorRemove.slice(1) +
-					'" style="' + temp + '">';
+					'">';
 
 			wo.scroller_calcWidths = [];
 
@@ -433,8 +436,7 @@
 						setWidth = $this.width();
 					}
 				}
-				row += '<td data-column="' + index + '" style="' + temp + 'width:' + setWidth +
-					'px;min-width:' + setWidth + 'px;max-width:' + setWidth + 'px"></td>';
+				row += '<td data-column="' + index + '" ></td>';
 
 				// save current widths
 				wo.scroller_calcWidths[ index ] = setWidth;
@@ -581,7 +583,7 @@
 
 			/*** Scrollbar hack! Since we can't hide the scrollbar with css ***/
 			if ( ts.scroller.isFirefox || ts.scroller.isOldIE ) {
-				$fixedTbody.wrap( '<div class="' + tscss.scrollerHack + '" style="overflow:hidden;">' );
+				$fixedTbody.wrap( '<div class="' + tscss.scrollerHack + '">' );
 			}
 
 		},

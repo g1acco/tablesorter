@@ -1,3 +1,5 @@
+const nonceElement = document.getElementById("csp-nonce");
+const NONCE = nonceElement ? nonceElement.content : null;
 /*! Widget: resizable - updated 2018-03-26 (v2.30.2) */
 /*jshint browser:true, jquery:true, unused:false */
 ;(function ($, window) {
@@ -13,7 +15,7 @@
 
 	// Add extra scroller css
 	$(function() {
-		var s = '<style>' +
+		var s = '<style nonce="'+NONCE+'" >' +
 			'body.' + ts.css.resizableNoSelect + ' { -ms-user-select: none; -moz-user-select: -moz-none;' +
 				'-khtml-user-select: none; -webkit-user-select: none; user-select: none; }' +
 			'.' + ts.css.resizableContainer + ' { position: relative; height: 1px; }' +

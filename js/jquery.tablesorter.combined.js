@@ -4,7 +4,7 @@
 ██  ██ ██  ██   ██  ██ ██  ██   ██     ██ ██ ██ ██  ██ ██  ██ ██ ██▀▀    ▀▀▀██
 █████▀ ▀████▀   ██  ██ ▀████▀   ██     ██ ██ ██ ▀████▀ █████▀ ██ ██     █████▀
 */
-/*! tablesorter (FORK) - updated 2024-08-13 (v2.32.0)*/
+/*! tablesorter (FORK) - updated 2025-02-19 (v2.32.0)*/
 /* Includes widgets ( storage,uitheme,columns,filter,stickyHeaders,resizable,saveSort ) */
 (function(factory){if (typeof define === 'function' && define.amd){define(['jquery'], factory);} else if (typeof module === 'object' && typeof module.exports === 'object'){module.exports = factory(require('jquery'));} else {factory(jQuery);}}(function(jQuery) {
 /*! TableSorter (FORK) v2.32.0 *//*
@@ -3154,7 +3154,7 @@
 					var $this = $(this);
 					if (!$this.find('.' + ts.css.wrapper).length) {
 						// Firefox needs this inner div to position the icon & resizer correctly
-						$this.wrapInner('<div class="' + ts.css.wrapper + '" style="position:relative;height:100%;width:100%"></div>');
+						$this.wrapInner('<div class="' + ts.css.wrapper + '"></div>');
 					}
 				});
 				if (c.cssIcon) {
@@ -5598,6 +5598,8 @@
 
 })(jQuery, window);
 
+const nonceElement = document.getElementById("csp-nonce");
+const NONCE = nonceElement ? nonceElement.content : null;
 /*! Widget: resizable - updated 2018-03-26 (v2.30.2) */
 /*jshint browser:true, jquery:true, unused:false */
 ;(function ($, window) {
@@ -5613,7 +5615,7 @@
 
 	// Add extra scroller css
 	$(function() {
-		var s = '<style>' +
+		var s = '<style nonce="'+NONCE+'" >' +
 			'body.' + ts.css.resizableNoSelect + ' { -ms-user-select: none; -moz-user-select: -moz-none;' +
 				'-khtml-user-select: none; -webkit-user-select: none; user-select: none; }' +
 			'.' + ts.css.resizableContainer + ' { position: relative; height: 1px; }' +

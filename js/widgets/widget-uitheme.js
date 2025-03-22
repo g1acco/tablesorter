@@ -114,7 +114,7 @@
 					var $this = $(this);
 					if (!$this.find('.' + ts.css.wrapper).length) {
 						// Firefox needs this inner div to position the icon & resizer correctly
-						$this.wrapInner('<div class="' + ts.css.wrapper + '" style="position:relative;height:100%;width:100%"></div>');
+						$this.wrapInner('<div class="' + ts.css.wrapper + '"></div>');
 					}
 				});
 				if (c.cssIcon) {
