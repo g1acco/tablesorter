@@ -1,4 +1,4 @@
-/*! tablesorter (FORK) - updated 2025-02-19 (v2.32.0)*/
+/*! tablesorter (FORK) - updated 2025-03-26 (v2.32.0)*/
 /* Includes widgets ( storage,uitheme,columns,filter,stickyHeaders,resizable,saveSort ) */
 (function(factory){if (typeof define === 'function' && define.amd){define(['jquery'], factory);} else if (typeof module === 'object' && typeof module.exports === 'object'){module.exports = factory(require('jquery'));} else {factory(jQuery);}}(function(jQuery) {
 /*! TableSorter (FORK) v2.32.0 *//*
@@ -5867,23 +5867,23 @@ const NONCE = nonceElement ? nonceElement.content : null;
 			});
 
 			// right click to reset columns to default widths
-			c.$table
-				.bind( 'columnUpdate pagerComplete resizableUpdate '.split( ' ' ).join( namespace + ' ' ), function() {
-					ts.resizable.setHandlePosition( c, wo );
-				})
-				.bind( 'resizableReset' + namespace, function() {
-					ts.resizableReset( c.table );
-				})
-				.find( 'thead:first' )
-				.add( $( c.namespace + '_extra_table' ).find( 'thead:first' ) )
-				.bind( 'contextmenu' + namespace, function() {
-					// $.isEmptyObject() needs jQuery 1.4+; allow right click if already reset
-					var allowClick = wo.resizable_vars.storedSizes.length === 0;
-					ts.resizableReset( c.table );
-					ts.resizable.setHandlePosition( c, wo );
-					wo.resizable_vars.storedSizes = [];
-					return allowClick;
-				});
+			//c.$table
+			//	.bind( 'columnUpdate pagerComplete resizableUpdate '.split( ' ' ).join( namespace + ' ' ), function() {
+			//		ts.resizable.setHandlePosition( c, wo );
+			//	})
+			//	.bind( 'resizableReset' + namespace, function() {
+			//		ts.resizableReset( c.table );
+			//	})
+			//	.find( 'thead:first' )
+			//	.add( $( c.namespace + '_extra_table' ).find( 'thead:first' ) )
+			//	.bind( 'contextmenu' + namespace, function() {
+			//		// $.isEmptyObject() needs jQuery 1.4+; allow right click if already reset
+			//		var allowClick = wo.resizable_vars.storedSizes.length === 0;
+			//		ts.resizableReset( c.table );
+			//		ts.resizable.setHandlePosition( c, wo );
+			//		wo.resizable_vars.storedSizes = [];
+			//		return allowClick;
+			//	});
 
 		},
 

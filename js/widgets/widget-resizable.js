@@ -273,23 +273,23 @@ const NONCE = nonceElement ? nonceElement.content : null;
 			});
 
 			// right click to reset columns to default widths
-			c.$table
-				.bind( 'columnUpdate pagerComplete resizableUpdate '.split( ' ' ).join( namespace + ' ' ), function() {
-					ts.resizable.setHandlePosition( c, wo );
-				})
-				.bind( 'resizableReset' + namespace, function() {
-					ts.resizableReset( c.table );
-				})
-				.find( 'thead:first' )
-				.add( $( c.namespace + '_extra_table' ).find( 'thead:first' ) )
-				.bind( 'contextmenu' + namespace, function() {
-					// $.isEmptyObject() needs jQuery 1.4+; allow right click if already reset
-					var allowClick = wo.resizable_vars.storedSizes.length === 0;
-					ts.resizableReset( c.table );
-					ts.resizable.setHandlePosition( c, wo );
-					wo.resizable_vars.storedSizes = [];
-					return allowClick;
-				});
+			//c.$table
+			//	.bind( 'columnUpdate pagerComplete resizableUpdate '.split( ' ' ).join( namespace + ' ' ), function() {
+			//		ts.resizable.setHandlePosition( c, wo );
+			//	})
+			//	.bind( 'resizableReset' + namespace, function() {
+			//		ts.resizableReset( c.table );
+			//	})
+			//	.find( 'thead:first' )
+			//	.add( $( c.namespace + '_extra_table' ).find( 'thead:first' ) )
+			//	.bind( 'contextmenu' + namespace, function() {
+			//		// $.isEmptyObject() needs jQuery 1.4+; allow right click if already reset
+			//		var allowClick = wo.resizable_vars.storedSizes.length === 0;
+			//		ts.resizableReset( c.table );
+			//		ts.resizable.setHandlePosition( c, wo );
+			//		wo.resizable_vars.storedSizes = [];
+			//		return allowClick;
+			//	});
 
 		},
 
